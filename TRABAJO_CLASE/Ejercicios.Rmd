@@ -1,0 +1,114 @@
+---
+title: "EJERCICIO LISTA"
+author: "Michelle Muñoz"
+date: "2024-10-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+EJERCICIOS DE LISTAS
+
+Ejercicio 1
+
+Crea una lista que contenga al menos cuatro tipos diferentes de datos (incluyendo al menos un vector, una matriz, y un data frame). Luego, escribe código para acceder a cada uno de estos elementos por su índice.
+
+```{r}
+lista1 <- list(
+  num = 25,
+  vector = c(2:42),
+  matriz = matrix(c(3,6,9,12), nrow = 2),
+  data = data.frame(nombre = c("jimena", "michelle", "daniela"), edad = c("21", "21", "23"))
+)
+
+print(lista1)
+
+## acceder por su índice
+
+numero <- lista1$num
+numero
+
+vector <- lista1$vector
+vector
+
+matriz <- lista1$matriz
+matriz
+
+datos <- lista1$data
+datos
+
+```
+
+Ejercicio 6
+
+Crea una lista fermentacion con 4 elementos, cada uno representando un experimento de fermentación.
+
+Cada elemento debe ser una lista con: Cepa, Condición, ProducciónEtanol.
+
+```{r}
+fermentacion <- list(
+  list(cepa = "23K", condicion = "control", etanol = 1.2),
+  list(cepa = "UA3", condicion = "alta glucosa", etanol = 4.6),
+  list(cepa = "CW8", condicion = "baja glucosa", etanol = 0.3),
+  list(cepa = "76H", condicion = "adición de manosa", etanol = 1.4)
+
+)
+
+fermentacion
+
+```
+
+Encuentra la condición con la mayor producción de etanol.
+
+```{r}
+etanol<- c ( fermentacion[[1]]$etanol, fermentacion[[2]]$etanol, fermentacion[[3]]$etanol,
+             fermentacion[[4]]$etanol)
+etanol
+
+maximo <- max(etanol)
+maximo
+
+if (maximo == fermentacion[[1]]$etanol) {
+  print (paste (fermentacion[[1]]$cepa, "bajo la condición de", fermentacion[[1]]$condicion))
+  
+} else if (maximo == fermentacion[[2]]$etanol){
+  print (paste (fermentacion[[2]]$cepa, "bajo la condición de", fermentacion[[2]]$condicion))
+  
+} else if (maximo == fermentacion[[3]]$etanol){
+  print (paste (fermentacion[[3]]$cepa, "bajo la condición de", fermentacion[[3]]$condicion))
+  
+} else if (maximo == fermentacion[[4]]$etanol){
+  print (paste (fermentacion[[4]]$cepa, "bajo la condición de", fermentacion[[4]]$condicion))
+  
+}
+
+```
+
+Ejercicio 5
+
+Crea una lista ensayos_clinicos con 3 elementos, cada uno representando un ensayo clínico.
+Cada elemento debe ser una lista con: Nombre, Fase, NúmeroPacientes.
+
+```{r}
+ensayos <- list(
+  list (nombre= "vacuna", fase = "pruebas clínicas", pacientes = 43),
+  list (nombre= "quimioterapia", fase = "experimental", pacientes = 0),
+  list (nombre= "métodos de diagnóstico", fase = "pruebas clínicas", pacientes = 321)
+)
+
+ensayos
+```
+
+Calcula el total de pacientes involucrados en todos los ensayos clínicos.
+
+```{r}
+total_pacientes <- ensayos[[1]]$pacientes + ensayos[[2]]$pacientes + ensayos[[3]]$pacientes
+total_pacientes
+
+```
+
+
+
+
